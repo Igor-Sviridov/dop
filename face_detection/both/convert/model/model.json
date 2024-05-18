@@ -1,0 +1,2710 @@
+{
+    "json_model_info": {
+        "count_of_inputs": 1,
+        "count_of_outputs": 3,
+        "output_names": [
+            "loc",
+            "conf",
+            "iou"
+        ],
+        "converter_version": "v2.0.0"
+    },
+    "input": {
+        "size": [
+            1,
+            3,
+            300,
+            300
+        ],
+        "type": "Input",
+        "outputs": [
+            "input"
+        ],
+        "dataType": 1
+    },
+    "elcore_transpose_115": {
+        "type": "Transpose",
+        "name": "elcore_transpose_115",
+        "inputs": [
+            "input"
+        ],
+        "outputs": [
+            "elcore_transpose_115"
+        ],
+        "perm": [
+            0,
+            2,
+            3,
+            1
+        ]
+    },
+    "318": {
+        "type": "Conv",
+        "name": "318",
+        "inputs": [
+            "elcore_transpose_115",
+            "319",
+            "320"
+        ],
+        "outputs": [
+            "318"
+        ],
+        "filters": [
+            16
+        ],
+        "kernel_shape": [
+            3,
+            3
+        ],
+        "strides": [
+            2,
+            2
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            1
+        ]
+    },
+    "179": {
+        "type": "Relu",
+        "name": "179",
+        "inputs": [
+            "318"
+        ],
+        "outputs": [
+            "179"
+        ]
+    },
+    "180": {
+        "type": "Conv",
+        "name": "180",
+        "inputs": [
+            "179",
+            "model0.conv2.conv1.weight",
+            "model0.conv2.conv1.bias"
+        ],
+        "outputs": [
+            "180"
+        ],
+        "filters": [
+            16
+        ],
+        "kernel_shape": [
+            1,
+            1
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            1
+        ]
+    },
+    "321": {
+        "type": "DepthwiseConv2D",
+        "name": "321",
+        "inputs": [
+            "180",
+            "322",
+            "323"
+        ],
+        "outputs": [
+            "321"
+        ],
+        "filters": [
+            16
+        ],
+        "kernel_shape": [
+            3,
+            3
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            16
+        ]
+    },
+    "183": {
+        "type": "Relu",
+        "name": "183",
+        "inputs": [
+            "321"
+        ],
+        "outputs": [
+            "183"
+        ]
+    },
+    "184": {
+        "type": "MaxPool",
+        "name": "184",
+        "inputs": [
+            "183"
+        ],
+        "outputs": [
+            "184"
+        ],
+        "kernel_shape": [
+            2,
+            2
+        ],
+        "strides": [
+            2,
+            2
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "ceil_mode": [
+            0
+        ]
+    },
+    "185": {
+        "type": "Conv",
+        "name": "185",
+        "inputs": [
+            "184",
+            "model1.conv1.conv1.weight",
+            "model1.conv1.conv1.bias"
+        ],
+        "outputs": [
+            "185"
+        ],
+        "filters": [
+            16
+        ],
+        "kernel_shape": [
+            1,
+            1
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            1
+        ]
+    },
+    "324": {
+        "type": "DepthwiseConv2D",
+        "name": "324",
+        "inputs": [
+            "185",
+            "325",
+            "326"
+        ],
+        "outputs": [
+            "324"
+        ],
+        "filters": [
+            16
+        ],
+        "kernel_shape": [
+            3,
+            3
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            16
+        ]
+    },
+    "188": {
+        "type": "Relu",
+        "name": "188",
+        "inputs": [
+            "324"
+        ],
+        "outputs": [
+            "188"
+        ]
+    },
+    "189": {
+        "type": "Conv",
+        "name": "189",
+        "inputs": [
+            "188",
+            "model1.conv2.conv1.weight",
+            "model1.conv2.conv1.bias"
+        ],
+        "outputs": [
+            "189"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            1,
+            1
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            1
+        ]
+    },
+    "327": {
+        "type": "DepthwiseConv2D",
+        "name": "327",
+        "inputs": [
+            "189",
+            "328",
+            "329"
+        ],
+        "outputs": [
+            "327"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            3,
+            3
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            64
+        ]
+    },
+    "192": {
+        "type": "Relu",
+        "name": "192",
+        "inputs": [
+            "327"
+        ],
+        "outputs": [
+            "192"
+        ]
+    },
+    "193": {
+        "type": "Conv",
+        "name": "193",
+        "inputs": [
+            "192",
+            "model2.conv1.conv1.weight",
+            "model2.conv1.conv1.bias"
+        ],
+        "outputs": [
+            "193"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            1,
+            1
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            1
+        ]
+    },
+    "330": {
+        "type": "DepthwiseConv2D",
+        "name": "330",
+        "inputs": [
+            "193",
+            "331",
+            "332"
+        ],
+        "outputs": [
+            "330"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            3,
+            3
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            64
+        ]
+    },
+    "196": {
+        "type": "Relu",
+        "name": "196",
+        "inputs": [
+            "330"
+        ],
+        "outputs": [
+            "196"
+        ]
+    },
+    "197": {
+        "type": "Conv",
+        "name": "197",
+        "inputs": [
+            "196",
+            "model2.conv2.conv1.weight",
+            "model2.conv2.conv1.bias"
+        ],
+        "outputs": [
+            "197"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            1,
+            1
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            1
+        ]
+    },
+    "333": {
+        "type": "DepthwiseConv2D",
+        "name": "333",
+        "inputs": [
+            "197",
+            "334",
+            "335"
+        ],
+        "outputs": [
+            "333"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            3,
+            3
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            64
+        ]
+    },
+    "200": {
+        "type": "Relu",
+        "name": "200",
+        "inputs": [
+            "333"
+        ],
+        "outputs": [
+            "200"
+        ]
+    },
+    "201": {
+        "type": "MaxPool",
+        "name": "201",
+        "inputs": [
+            "200"
+        ],
+        "outputs": [
+            "201"
+        ],
+        "kernel_shape": [
+            2,
+            2
+        ],
+        "strides": [
+            2,
+            2
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "ceil_mode": [
+            0
+        ]
+    },
+    "202": {
+        "type": "Conv",
+        "name": "202",
+        "inputs": [
+            "201",
+            "model3.conv1.conv1.weight",
+            "model3.conv1.conv1.bias"
+        ],
+        "outputs": [
+            "202"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            1,
+            1
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            1
+        ]
+    },
+    "336": {
+        "type": "DepthwiseConv2D",
+        "name": "336",
+        "inputs": [
+            "202",
+            "337",
+            "338"
+        ],
+        "outputs": [
+            "336"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            3,
+            3
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            64
+        ]
+    },
+    "205": {
+        "type": "Relu",
+        "name": "205",
+        "inputs": [
+            "336"
+        ],
+        "outputs": [
+            "205"
+        ]
+    },
+    "206": {
+        "type": "Conv",
+        "name": "206",
+        "inputs": [
+            "205",
+            "model3.conv2.conv1.weight",
+            "model3.conv2.conv1.bias"
+        ],
+        "outputs": [
+            "206"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            1,
+            1
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            1
+        ]
+    },
+    "339": {
+        "type": "DepthwiseConv2D",
+        "name": "339",
+        "inputs": [
+            "206",
+            "340",
+            "341"
+        ],
+        "outputs": [
+            "339"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            3,
+            3
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            64
+        ]
+    },
+    "209": {
+        "type": "Relu",
+        "name": "209",
+        "inputs": [
+            "339"
+        ],
+        "outputs": [
+            "209"
+        ]
+    },
+    "210": {
+        "type": "MaxPool",
+        "name": "210",
+        "inputs": [
+            "209"
+        ],
+        "outputs": [
+            "210"
+        ],
+        "kernel_shape": [
+            2,
+            2
+        ],
+        "strides": [
+            2,
+            2
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "ceil_mode": [
+            0
+        ]
+    },
+    "211": {
+        "type": "Conv",
+        "name": "211",
+        "inputs": [
+            "210",
+            "model4.conv1.conv1.weight",
+            "model4.conv1.conv1.bias"
+        ],
+        "outputs": [
+            "211"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            1,
+            1
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            1
+        ]
+    },
+    "342": {
+        "type": "DepthwiseConv2D",
+        "name": "342",
+        "inputs": [
+            "211",
+            "343",
+            "344"
+        ],
+        "outputs": [
+            "342"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            3,
+            3
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            64
+        ]
+    },
+    "214": {
+        "type": "Relu",
+        "name": "214",
+        "inputs": [
+            "342"
+        ],
+        "outputs": [
+            "214"
+        ]
+    },
+    "215": {
+        "type": "Conv",
+        "name": "215",
+        "inputs": [
+            "214",
+            "model4.conv2.conv1.weight",
+            "model4.conv2.conv1.bias"
+        ],
+        "outputs": [
+            "215"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            1,
+            1
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            1
+        ]
+    },
+    "345": {
+        "type": "DepthwiseConv2D",
+        "name": "345",
+        "inputs": [
+            "215",
+            "346",
+            "347"
+        ],
+        "outputs": [
+            "345"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            3,
+            3
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            64
+        ]
+    },
+    "218": {
+        "type": "Relu",
+        "name": "218",
+        "inputs": [
+            "345"
+        ],
+        "outputs": [
+            "218"
+        ]
+    },
+    "219": {
+        "type": "MaxPool",
+        "name": "219",
+        "inputs": [
+            "218"
+        ],
+        "outputs": [
+            "219"
+        ],
+        "kernel_shape": [
+            2,
+            2
+        ],
+        "strides": [
+            2,
+            2
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "ceil_mode": [
+            0
+        ]
+    },
+    "220": {
+        "type": "Conv",
+        "name": "220",
+        "inputs": [
+            "219",
+            "model5.conv1.conv1.weight",
+            "model5.conv1.conv1.bias"
+        ],
+        "outputs": [
+            "220"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            1,
+            1
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            1
+        ]
+    },
+    "348": {
+        "type": "DepthwiseConv2D",
+        "name": "348",
+        "inputs": [
+            "220",
+            "349",
+            "350"
+        ],
+        "outputs": [
+            "348"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            3,
+            3
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            64
+        ]
+    },
+    "223": {
+        "type": "Relu",
+        "name": "223",
+        "inputs": [
+            "348"
+        ],
+        "outputs": [
+            "223"
+        ]
+    },
+    "224": {
+        "type": "Conv",
+        "name": "224",
+        "inputs": [
+            "223",
+            "model5.conv2.conv1.weight",
+            "model5.conv2.conv1.bias"
+        ],
+        "outputs": [
+            "224"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            1,
+            1
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            1
+        ]
+    },
+    "351": {
+        "type": "DepthwiseConv2D",
+        "name": "351",
+        "inputs": [
+            "224",
+            "352",
+            "353"
+        ],
+        "outputs": [
+            "351"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            3,
+            3
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            64
+        ]
+    },
+    "227": {
+        "type": "Relu",
+        "name": "227",
+        "inputs": [
+            "351"
+        ],
+        "outputs": [
+            "227"
+        ]
+    },
+    "228": {
+        "type": "MaxPool",
+        "name": "228",
+        "inputs": [
+            "227"
+        ],
+        "outputs": [
+            "228"
+        ],
+        "kernel_shape": [
+            2,
+            2
+        ],
+        "strides": [
+            2,
+            2
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "ceil_mode": [
+            0
+        ]
+    },
+    "229": {
+        "type": "Conv",
+        "name": "229",
+        "inputs": [
+            "228",
+            "model6.conv1.conv1.weight",
+            "model6.conv1.conv1.bias"
+        ],
+        "outputs": [
+            "229"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            1,
+            1
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            1
+        ]
+    },
+    "354": {
+        "type": "DepthwiseConv2D",
+        "name": "354",
+        "inputs": [
+            "229",
+            "355",
+            "356"
+        ],
+        "outputs": [
+            "354"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            3,
+            3
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            64
+        ]
+    },
+    "232": {
+        "type": "Relu",
+        "name": "232",
+        "inputs": [
+            "354"
+        ],
+        "outputs": [
+            "232"
+        ]
+    },
+    "233": {
+        "type": "Conv",
+        "name": "233",
+        "inputs": [
+            "232",
+            "model6.conv2.conv1.weight",
+            "model6.conv2.conv1.bias"
+        ],
+        "outputs": [
+            "233"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            1,
+            1
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            1
+        ]
+    },
+    "357": {
+        "type": "DepthwiseConv2D",
+        "name": "357",
+        "inputs": [
+            "233",
+            "358",
+            "359"
+        ],
+        "outputs": [
+            "357"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            3,
+            3
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            64
+        ]
+    },
+    "236": {
+        "type": "Relu",
+        "name": "236",
+        "inputs": [
+            "357"
+        ],
+        "outputs": [
+            "236"
+        ]
+    },
+    "237": {
+        "type": "Conv",
+        "name": "237",
+        "inputs": [
+            "209",
+            "head.0.conv1.conv1.weight",
+            "head.0.conv1.conv1.bias"
+        ],
+        "outputs": [
+            "237"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            1,
+            1
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            1
+        ]
+    },
+    "360": {
+        "type": "DepthwiseConv2D",
+        "name": "360",
+        "inputs": [
+            "237",
+            "361",
+            "362"
+        ],
+        "outputs": [
+            "360"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            3,
+            3
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            64
+        ]
+    },
+    "240": {
+        "type": "Relu",
+        "name": "240",
+        "inputs": [
+            "360"
+        ],
+        "outputs": [
+            "240"
+        ]
+    },
+    "241": {
+        "type": "Conv",
+        "name": "241",
+        "inputs": [
+            "240",
+            "head.0.conv2.conv1.weight",
+            "head.0.conv2.conv1.bias"
+        ],
+        "outputs": [
+            "241"
+        ],
+        "filters": [
+            51
+        ],
+        "kernel_shape": [
+            1,
+            1
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            1
+        ]
+    },
+    "242": {
+        "type": "DepthwiseConv2D",
+        "name": "242",
+        "inputs": [
+            "241",
+            "head.0.conv2.conv2.weight",
+            "head.0.conv2.conv2.bias"
+        ],
+        "outputs": [
+            "242"
+        ],
+        "filters": [
+            51
+        ],
+        "kernel_shape": [
+            3,
+            3
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            51
+        ]
+    },
+    "244": {
+        "type": "Conv",
+        "name": "244",
+        "inputs": [
+            "218",
+            "head.1.conv1.conv1.weight",
+            "head.1.conv1.conv1.bias"
+        ],
+        "outputs": [
+            "244"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            1,
+            1
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            1
+        ]
+    },
+    "363": {
+        "type": "DepthwiseConv2D",
+        "name": "363",
+        "inputs": [
+            "244",
+            "364",
+            "365"
+        ],
+        "outputs": [
+            "363"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            3,
+            3
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            64
+        ]
+    },
+    "247": {
+        "type": "Relu",
+        "name": "247",
+        "inputs": [
+            "363"
+        ],
+        "outputs": [
+            "247"
+        ]
+    },
+    "248": {
+        "type": "Conv",
+        "name": "248",
+        "inputs": [
+            "247",
+            "head.1.conv2.conv1.weight",
+            "head.1.conv2.conv1.bias"
+        ],
+        "outputs": [
+            "248"
+        ],
+        "filters": [
+            34
+        ],
+        "kernel_shape": [
+            1,
+            1
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            1
+        ]
+    },
+    "249": {
+        "type": "DepthwiseConv2D",
+        "name": "249",
+        "inputs": [
+            "248",
+            "head.1.conv2.conv2.weight",
+            "head.1.conv2.conv2.bias"
+        ],
+        "outputs": [
+            "249"
+        ],
+        "filters": [
+            34
+        ],
+        "kernel_shape": [
+            3,
+            3
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            34
+        ]
+    },
+    "251": {
+        "type": "Conv",
+        "name": "251",
+        "inputs": [
+            "227",
+            "head.2.conv1.conv1.weight",
+            "head.2.conv1.conv1.bias"
+        ],
+        "outputs": [
+            "251"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            1,
+            1
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            1
+        ]
+    },
+    "366": {
+        "type": "DepthwiseConv2D",
+        "name": "366",
+        "inputs": [
+            "251",
+            "367",
+            "368"
+        ],
+        "outputs": [
+            "366"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            3,
+            3
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            64
+        ]
+    },
+    "254": {
+        "type": "Relu",
+        "name": "254",
+        "inputs": [
+            "366"
+        ],
+        "outputs": [
+            "254"
+        ]
+    },
+    "255": {
+        "type": "Conv",
+        "name": "255",
+        "inputs": [
+            "254",
+            "head.2.conv2.conv1.weight",
+            "head.2.conv2.conv1.bias"
+        ],
+        "outputs": [
+            "255"
+        ],
+        "filters": [
+            34
+        ],
+        "kernel_shape": [
+            1,
+            1
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            1
+        ]
+    },
+    "256": {
+        "type": "DepthwiseConv2D",
+        "name": "256",
+        "inputs": [
+            "255",
+            "head.2.conv2.conv2.weight",
+            "head.2.conv2.conv2.bias"
+        ],
+        "outputs": [
+            "256"
+        ],
+        "filters": [
+            34
+        ],
+        "kernel_shape": [
+            3,
+            3
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            34
+        ]
+    },
+    "258": {
+        "type": "Conv",
+        "name": "258",
+        "inputs": [
+            "236",
+            "head.3.conv1.conv1.weight",
+            "head.3.conv1.conv1.bias"
+        ],
+        "outputs": [
+            "258"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            1,
+            1
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            1
+        ]
+    },
+    "369": {
+        "type": "DepthwiseConv2D",
+        "name": "369",
+        "inputs": [
+            "258",
+            "370",
+            "371"
+        ],
+        "outputs": [
+            "369"
+        ],
+        "filters": [
+            64
+        ],
+        "kernel_shape": [
+            3,
+            3
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            64
+        ]
+    },
+    "261": {
+        "type": "Relu",
+        "name": "261",
+        "inputs": [
+            "369"
+        ],
+        "outputs": [
+            "261"
+        ]
+    },
+    "262": {
+        "type": "Conv",
+        "name": "262",
+        "inputs": [
+            "261",
+            "head.3.conv2.conv1.weight",
+            "head.3.conv2.conv1.bias"
+        ],
+        "outputs": [
+            "262"
+        ],
+        "filters": [
+            51
+        ],
+        "kernel_shape": [
+            1,
+            1
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            0,
+            0,
+            0,
+            0
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            1
+        ]
+    },
+    "263": {
+        "type": "DepthwiseConv2D",
+        "name": "263",
+        "inputs": [
+            "262",
+            "head.3.conv2.conv2.weight",
+            "head.3.conv2.conv2.bias"
+        ],
+        "outputs": [
+            "263"
+        ],
+        "filters": [
+            51
+        ],
+        "kernel_shape": [
+            3,
+            3
+        ],
+        "strides": [
+            1,
+            1
+        ],
+        "dilations": [
+            1,
+            1
+        ],
+        "pads": [
+            1,
+            1,
+            1,
+            1
+        ],
+        "use_bias": [
+            true
+        ],
+        "group": [
+            51
+        ]
+    },
+    "265": {
+        "type": "Shape",
+        "name": "265",
+        "inputs": [
+            "242"
+        ],
+        "outputs": [
+            "265"
+        ]
+    },
+    "267": {
+        "type": "Gather",
+        "name": "267",
+        "inputs": [
+            "265",
+            "266"
+        ],
+        "outputs": [
+            "267"
+        ],
+        "axis": [
+            0
+        ],
+        "266": {
+            "dims": [],
+            "dataType": 7,
+            "data": [
+                0
+            ]
+        }
+    },
+    "269": {
+        "type": "Unsqueeze",
+        "name": "269",
+        "inputs": [
+            "267",
+            "276"
+        ],
+        "outputs": [
+            "269"
+        ],
+        "276": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                0
+            ]
+        }
+    },
+    "271": {
+        "type": "Concat",
+        "name": "271",
+        "inputs": [
+            "269",
+            "372"
+        ],
+        "outputs": [
+            "271"
+        ],
+        "axis": [
+            0
+        ],
+        "372": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                -1
+            ]
+        }
+    },
+    "272": {
+        "type": "Reshape",
+        "name": "272",
+        "inputs": [
+            "242",
+            "271"
+        ],
+        "outputs": [
+            "272"
+        ]
+    },
+    "273": {
+        "type": "Shape",
+        "name": "273",
+        "inputs": [
+            "249"
+        ],
+        "outputs": [
+            "273"
+        ]
+    },
+    "275": {
+        "type": "Gather",
+        "name": "275",
+        "inputs": [
+            "273",
+            "274"
+        ],
+        "outputs": [
+            "275"
+        ],
+        "axis": [
+            0
+        ],
+        "274": {
+            "dims": [],
+            "dataType": 7,
+            "data": [
+                0
+            ]
+        }
+    },
+    "277": {
+        "type": "Unsqueeze",
+        "name": "277",
+        "inputs": [
+            "275",
+            "278"
+        ],
+        "outputs": [
+            "277"
+        ],
+        "278": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                0
+            ]
+        }
+    },
+    "279": {
+        "type": "Concat",
+        "name": "279",
+        "inputs": [
+            "277",
+            "373"
+        ],
+        "outputs": [
+            "279"
+        ],
+        "axis": [
+            0
+        ],
+        "373": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                -1
+            ]
+        }
+    },
+    "280": {
+        "type": "Reshape",
+        "name": "280",
+        "inputs": [
+            "249",
+            "279"
+        ],
+        "outputs": [
+            "280"
+        ]
+    },
+    "281": {
+        "type": "Shape",
+        "name": "281",
+        "inputs": [
+            "256"
+        ],
+        "outputs": [
+            "281"
+        ]
+    },
+    "283": {
+        "type": "Gather",
+        "name": "283",
+        "inputs": [
+            "281",
+            "282"
+        ],
+        "outputs": [
+            "283"
+        ],
+        "axis": [
+            0
+        ],
+        "282": {
+            "dims": [],
+            "dataType": 7,
+            "data": [
+                0
+            ]
+        }
+    },
+    "285": {
+        "type": "Unsqueeze",
+        "name": "285",
+        "inputs": [
+            "283",
+            "284"
+        ],
+        "outputs": [
+            "285"
+        ],
+        "284": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                0
+            ]
+        }
+    },
+    "287": {
+        "type": "Concat",
+        "name": "287",
+        "inputs": [
+            "285",
+            "374"
+        ],
+        "outputs": [
+            "287"
+        ],
+        "axis": [
+            0
+        ],
+        "374": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                -1
+            ]
+        }
+    },
+    "288": {
+        "type": "Reshape",
+        "name": "288",
+        "inputs": [
+            "256",
+            "287"
+        ],
+        "outputs": [
+            "288"
+        ]
+    },
+    "289": {
+        "type": "Shape",
+        "name": "289",
+        "inputs": [
+            "263"
+        ],
+        "outputs": [
+            "289"
+        ]
+    },
+    "291": {
+        "type": "Gather",
+        "name": "291",
+        "inputs": [
+            "289",
+            "290"
+        ],
+        "outputs": [
+            "291"
+        ],
+        "axis": [
+            0
+        ],
+        "290": {
+            "dims": [],
+            "dataType": 7,
+            "data": [
+                0
+            ]
+        }
+    },
+    "293": {
+        "type": "Unsqueeze",
+        "name": "293",
+        "inputs": [
+            "291",
+            "286"
+        ],
+        "outputs": [
+            "293"
+        ],
+        "286": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                0
+            ]
+        }
+    },
+    "295": {
+        "type": "Concat",
+        "name": "295",
+        "inputs": [
+            "293",
+            "375"
+        ],
+        "outputs": [
+            "295"
+        ],
+        "axis": [
+            0
+        ],
+        "375": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                -1
+            ]
+        }
+    },
+    "296": {
+        "type": "Reshape",
+        "name": "296",
+        "inputs": [
+            "263",
+            "295"
+        ],
+        "outputs": [
+            "296"
+        ]
+    },
+    "297": {
+        "type": "Concat",
+        "name": "297",
+        "inputs": [
+            "272",
+            "280",
+            "288",
+            "296"
+        ],
+        "outputs": [
+            "297"
+        ],
+        "axis": [
+            1
+        ]
+    },
+    "298": {
+        "type": "Shape",
+        "name": "298",
+        "inputs": [
+            "297"
+        ],
+        "outputs": [
+            "298"
+        ]
+    },
+    "300": {
+        "type": "Gather",
+        "name": "300",
+        "inputs": [
+            "298",
+            "299"
+        ],
+        "outputs": [
+            "300"
+        ],
+        "axis": [
+            0
+        ],
+        "299": {
+            "dims": [],
+            "dataType": 7,
+            "data": [
+                0
+            ]
+        }
+    },
+    "303": {
+        "type": "Unsqueeze",
+        "name": "303",
+        "inputs": [
+            "300",
+            "292"
+        ],
+        "outputs": [
+            "303"
+        ],
+        "292": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                0
+            ]
+        }
+    },
+    "306": {
+        "type": "Concat",
+        "name": "306",
+        "inputs": [
+            "303",
+            "376",
+            "377"
+        ],
+        "outputs": [
+            "306"
+        ],
+        "axis": [
+            0
+        ],
+        "376": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                -1
+            ]
+        },
+        "377": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                17
+            ]
+        }
+    },
+    "307": {
+        "type": "Reshape",
+        "name": "307",
+        "inputs": [
+            "297",
+            "306"
+        ],
+        "outputs": [
+            "307"
+        ]
+    },
+    "308": {
+        "type": "Slice",
+        "name": "308",
+        "inputs": [
+            "307",
+            "239",
+            "245",
+            "246",
+            "elcore_slice_step_1"
+        ],
+        "outputs": [
+            "308"
+        ],
+        "239": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                0
+            ]
+        },
+        "245": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                14
+            ]
+        },
+        "246": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                2
+            ]
+        },
+        "elcore_slice_step_1": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                1
+            ]
+        }
+    },
+    "309": {
+        "type": "Slice",
+        "name": "309",
+        "inputs": [
+            "307",
+            "252",
+            "253",
+            "259",
+            "elcore_slice_step_2"
+        ],
+        "outputs": [
+            "309"
+        ],
+        "252": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                14
+            ]
+        },
+        "253": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                16
+            ]
+        },
+        "259": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                2
+            ]
+        },
+        "elcore_slice_step_2": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                1
+            ]
+        }
+    },
+    "310": {
+        "type": "Slice",
+        "name": "310",
+        "inputs": [
+            "307",
+            "260",
+            "268",
+            "270",
+            "elcore_slice_step_3"
+        ],
+        "outputs": [
+            "310"
+        ],
+        "260": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                16
+            ]
+        },
+        "268": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                17
+            ]
+        },
+        "270": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                2
+            ]
+        },
+        "elcore_slice_step_3": {
+            "dims": [
+                1
+            ],
+            "dataType": 7,
+            "data": [
+                1
+            ]
+        }
+    },
+    "loc": {
+        "type": "Reshape",
+        "name": "loc",
+        "inputs": [
+            "308",
+            "311"
+        ],
+        "outputs": [
+            "loc"
+        ],
+        "311": {
+            "dims": [
+                2
+            ],
+            "dataType": 7,
+            "data": [
+                -1,
+                14
+            ]
+        },
+        "output_node_flag": true
+    },
+    "314": {
+        "type": "Reshape",
+        "name": "314",
+        "inputs": [
+            "309",
+            "313"
+        ],
+        "outputs": [
+            "314"
+        ],
+        "313": {
+            "dims": [
+                2
+            ],
+            "dataType": 7,
+            "data": [
+                -1,
+                2
+            ]
+        }
+    },
+    "conf": {
+        "type": "Softmax",
+        "name": "conf",
+        "inputs": [
+            "314"
+        ],
+        "outputs": [
+            "conf"
+        ],
+        "output_node_flag": true
+    },
+    "iou": {
+        "type": "Reshape",
+        "name": "iou",
+        "inputs": [
+            "310",
+            "316"
+        ],
+        "outputs": [
+            "iou"
+        ],
+        "316": {
+            "dims": [
+                2
+            ],
+            "dataType": 7,
+            "data": [
+                -1,
+                1
+            ]
+        },
+        "output_node_flag": true
+    }
+}

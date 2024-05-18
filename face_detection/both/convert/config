@@ -1,0 +1,10 @@
+{
+    "model_path": "./model_fixed_300.onnx",
+    "result_path": "./model",
+
+    "inputs": {
+        "input": [1, 3, 300, 300]
+    },
+    "outputs": ["loc", "conf", "iou"]
+    
+}
